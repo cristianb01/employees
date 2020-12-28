@@ -1,0 +1,31 @@
+<div class="container d-flex justify-content-center">
+    <div class="card text-center w-75">
+        <div class="card-body">
+            <h3>{{ isEditing ? 'Edit employee' : 'Add employee' }}</h3>
+            <form class="mt-4" [formGroup]="newEmployeeForm" (ngSubmit)="submitForm()">
+                <div class="row">
+                    <div class="col">
+                        <input type="text" placeholder="Name" 
+                                class="form-control"
+                                formControlName="name">
+                    </div>
+                    <div class="col">
+                        <input type="text" placeholder="Last name" 
+                                class="form-control"
+                                formControlName="lastName">
+                    </div>
+                </div>
+                <input type="text" placeholder="Identification" 
+                        class="form-control mt-3"
+                        formControlName="identification">
+                <input type="number" placeholder="Salary" 
+                        class="form-control mt-3"
+                        formControlName="salary">
+                <div class="mt-3 d-flex justify-content-evenly">
+                    <button class="btn btn-secondary action-button" [routerLink]="routes.employeeList">Cancel</button>
+                    <button type="submit" class="btn btn-secondary action-button btn-dark">{{ isEditing ? 'Edit' : 'Add' }}</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

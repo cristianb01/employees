@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="card">
+        <div class="card-body p-4">
+            <span class="h3">Employee list</span>
+            <button class="btn-dark btn-lg float-end" routerLink="/employee-management">
+                Add
+            </button>
+
+            <table class="table table-striped mt-5">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Last name</th>
+                    <th>Identification</th>
+                    <th>Salary</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let employee of employees | async">
+                    <td>{{ employee.name }}</td>
+                    <td>{{ employee.lastName }}</td>
+                    <td>{{ employee.identification }}</td>
+                    <td>{{ employee.salary | currency }}</td>
+                    <td>
+                      <a [routerLink]="[routes.editEmployee, employee.id]">
+                        <i class="far fa-edit me-3 fa-lg" ></i>
+                      </a>
+                      <i class="far fa-trash-alt fa-lg" (click)="deleteEmployee(employee.id)"></i>
+                    </td>
+                  </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

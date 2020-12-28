@@ -123,9 +123,16 @@
               "devServerTarget": "Empleados:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
     }
   },
-  "defaultProject": "Empleados"
+  "defaultProject": "Empleados",
+  "cli": {
+    "analytics": false
+  }
 }
